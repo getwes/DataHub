@@ -38,6 +38,14 @@ if valor == "sim":
 
         print(f"seu nome foi trocado para {novo_nome}")
 
+    if opcao == "2":
+        novo_email = input("digite seu novo email: ")
+        comando = f'UPDATE clientes SET email = "{novo_email}" where email = "{email}"'
+        cursor.execute(comando)
+        conexao.commit()
+
+        print(f"seu novo email é {novo_email}")
+  
 
 cursor.close()
 conexao.close()
