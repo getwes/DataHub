@@ -9,10 +9,26 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
+escolha = input("voce gostaria de deletar algum dado? digite: s /n: ")
+if escolha == "s":
+    cadastro = input("nos informe seu email cadastrado: ")
+    comando = f'DELETE FROM clientes WHERE email = "{cadastro}"'
+    
+    cursor.execute(comando)
+    conexao.commit()
+
+    print("seu email foi deletado com sucesso")
+
+else:
+    escolha = "n"
+    print("ok tenha um bom dia")
+
+
+
 nome = input("digite seu nome: ")
-email =input("digite seu email: ")
+email = input("digite seu email: ")
 idade = int(input("digite sua idade: "))
-senha =int(input("digite sua senha: "))
+senha = int(input("digite sua senha: "))
 
 comando = f'INSERT INTO clientes(nome, email, idade, senha) VALUES ("{nome}", "{email}", {idade}, {senha})'
 cursor.execute(comando)
